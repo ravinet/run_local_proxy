@@ -1,0 +1,11 @@
+1) modify setup_jit.py: change "/home/ubuntu/" to the absolute path of your home directory.
+
+2) run setup_jit.py with "python setup_jit.py"
+
+3) run "sudo sysctl -w net.ipv4.ip_forward=1"
+
+4) modify load_10_both.py: change "/home/ubuntu/ to the absolute path of your home directory.
+
+5) make sure that load_print_ec2.py is in the <YOUR-HOME-DIRECTORY>/mahimahi directory
+
+6) Run "python load_10_both.py use_corpus.txt > results.txt"
