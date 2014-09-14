@@ -1,6 +1,8 @@
-1) run setup_jit.py with "python setup_jit.py" in the "run_local_proxy-master" directory
+1) type "python setup_jit.py" in the terminal and press enter
 
-2) run "sudo sysctl -w net.ipv4.ip_forward=1"
+2) type "sudo sysctl -w net.ipv4.ip_forward=1" in the terminal and press enter
 
-3) Run "python load_10_both.py use_corpus.txt > results.txt"
+3) Make sure Ravi has assigned you a port number for the experiment (if not, email ravinet@mit.edu)
 
+4) Type "python load_10_both.py port_number use_corpus.txt > results.txt" in the terminal and press enter
+** port_number is the number assigned from step 3 (eg. 2222) **
