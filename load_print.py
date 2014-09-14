@@ -18,13 +18,14 @@ from time import sleep
 
 site = sys.argv[1]
 
+curr_dir = os.getcwd()
+chrome_path = str(curr_dir) + "/chromedriver"
 ### to run chrome ###
 options=Options()
 options.add_argument("--incognito")
 options.add_argument("--ignore-certificate-errors")
 #options.add_argument('--disable-application-cache')
-chromedriver = "/home/ravi/chromedriver"
-driver=webdriver.Chrome(chromedriver, chrome_options=options)
+driver=webdriver.Chrome(chrome_path, chrome_options=options)
 
 display = Display(visible=0, size=(800,600))
 display.start()
