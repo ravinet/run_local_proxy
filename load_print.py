@@ -18,6 +18,9 @@ from time import sleep
 
 site = sys.argv[1]
 
+display = Display(visible=0, size=(800,600))
+display.start()
+
 curr_dir = os.getcwd()
 chrome_path = str(curr_dir) + "/chromedriver"
 ### to run chrome ###
@@ -26,9 +29,6 @@ options.add_argument("--incognito")
 options.add_argument("--ignore-certificate-errors")
 #options.add_argument('--disable-application-cache')
 driver=webdriver.Chrome(chrome_path, chrome_options=options)
-
-display = Display(visible=0, size=(800,600))
-display.start()
 
 # to run firefox ###
 #driver = webdriver.Firefox()
