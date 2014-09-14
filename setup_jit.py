@@ -11,13 +11,16 @@ os.system( "sudo apt-get -y install autotools-dev dh-autoreconf iptables protobu
 
 os.system( "git clone https://www.github.com/ravinet/mahimahi" );
 
-os.chdir( "/home/ubuntu/mahimahi" );
+start_dir = os.getcwd()
+mahimahi_dir = start_dir + "/mahimahi"
+
+os.chdir( mahimahi_dir );
 
 os.system( "git checkout send_could_not_finds" );
 
 os.system( "./autogen.sh && ./configure && make -j && sudo make install" );
 
-os.chdir( "/home/ubuntu" );
+os.chdir( start_dir );
 
 # COMMENT NEXT BLOCK OUT IF THIS IS NOT TO SET UP LOCAL PROXY (CLIENT) MACHINE #
 
@@ -27,11 +30,13 @@ os.system( "sudo apt-get -y install python-setuptools python-pip xvfb xserver-xe
 
 os.system( "tar xvzf selenium-2.39.0.tar.gz" );
 
-os.chdir( "/home/ubuntu/selenium-2.39.0" );
+selenium_dir = start_dir + "/selenium-2.39.0"
+
+os.chdir( selenium_dir );
 
 os.system( "sudo python setup.py install" );
 
-os.chdir( "/home/ubuntu" );
+os.chdir( start_dir );
 
 os.system( "sudo pip install pyvirtualdisplay" );
 

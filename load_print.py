@@ -26,6 +26,9 @@ options.add_argument("--ignore-certificate-errors")
 chromedriver = "/home/ravi/chromedriver"
 driver=webdriver.Chrome(chromedriver, chrome_options=options)
 
+display = Display(visible=0, size=(800,600))
+display.start()
+
 # to run firefox ###
 #driver = webdriver.Firefox()
 
