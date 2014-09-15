@@ -14,8 +14,8 @@ with open(site_list) as f:
         site_times = []
         site_times_web = []
         load_file = current_dir + "/load_print.py"
-        command_proxy = "delayshell 50 /usr/local/bin/localproxyshell 128.30.76.55 " + str(port) + " /usr/bin/python " + str(load_file) + " " + site
-        command_web = "delayshell 50 /usr/bin/python " + str(load_file) + " " + site
+        command_proxy = "localproxyshell 128.30.76.55 " + str(port) + " /usr/bin/python " + str(load_file) + " " + site
+        command_web = "python " + str(load_file) + " " + site
         for x in range(0,4):
             proc = subprocess.Popen([command_proxy], stdout=subprocess.PIPE, shell=True)
             (out, err) = proc.communicate()
