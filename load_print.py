@@ -35,7 +35,7 @@ driver=webdriver.Chrome(chrome_path, chrome_options=options)
 
 #profile = webdriver.FirefoxProfile()
 #profile.set_preference("webdriver_assume_untrusted_issuer", "false") 
-driver.set_page_load_timeout(150)
+driver.set_page_load_timeout(300)
 driver.get(site)
 #sleep(10)
 

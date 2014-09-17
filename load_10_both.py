@@ -16,7 +16,7 @@ with open(site_list) as f:
         load_file = current_dir + "/load_print.py"
         command_proxy = "localproxyshell 128.30.76.55 " + str(port) + " /usr/bin/python " + str(load_file) + " " + site
         command_web = "python " + str(load_file) + " " + site
-        for x in range(0,4):
+        for x in range(0,3):
             proc = subprocess.Popen([command_proxy], stdout=subprocess.PIPE, shell=True)
             (out, err) = proc.communicate()
             return_code = proc.returncode
@@ -36,7 +36,7 @@ with open(site_list) as f:
             print "PROXY AVERAGE: " + str(average)
         else:
             print "PROXY DID NOT LOAD: " + str(site)
-        for y in range(0,4):
+        for y in range(0,3):
             proc1 = subprocess.Popen([command_web], stdout=subprocess.PIPE, shell=True)
             (out1, err1) = proc1.communicate()
             return_code1 = proc1.returncode
