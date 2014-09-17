@@ -40,12 +40,12 @@ os.chdir( start_dir );
 
 os.system( "sudo pip install pyvirtualdisplay" );
 
-os.system( "wget 'http://chromedriver.storage.googleapis.com/2.8/chromedriver_linux64.zip' ");
+os.system( "wget 'http://chromedriver.storage.googleapis.com/2.8/chromedriver_linux32.zip' ");
 
-os.system( "unzip chromedriver_linux64.zip" );
+os.system( "unzip chromedriver_linux32.zip" );
 
-os.system( "wget 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' ");
+os.system( "wget 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb' ");
 
-os.system( "sudo dpkg -i google-chrome-stable_current_amd64.deb" );
+os.system( "sudo dpkg -i google-chrome-stable_current_i386.deb" );
 
 os.system( "sudo apt-get -f -y install" );
