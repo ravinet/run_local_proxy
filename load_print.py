@@ -1,10 +1,11 @@
-import sys
+mport sys
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from pyvirtualdisplay import Display
 import os
+import time
 from time import sleep
 #TO RUN: download https://pypi.python.org/packages/source/s/selenium/selenium-2.39.0.tar.gz
 #run sudo apt-get install python-setuptools
@@ -17,6 +18,7 @@ from time import sleep
 #if they are at those locations, don't need to specify
 
 site = sys.argv[1]
+current_milli_time = lambda: int(round(time.time() * 1000))
 
 display = Display(visible=0, size=(800,600))
 display.start()
@@ -35,24 +37,17 @@ driver=webdriver.Chrome(chrome_path, chrome_options=options)
 
 #profile = webdriver.FirefoxProfile()
 #profile.set_preference("webdriver_assume_untrusted_issuer", "false") 
+#sleep(10)
+navigationStart = current_milli_time()
 driver.set_page_load_timeout(150)
 driver.get(site)
-#sleep(10)
-
+loadEventEnd = current_milli_time()
 
 #notes: http://www.sitepoint.com/profiling-page-loads-with-the-navigation-timing-api/
 
 #beginning of page load as perceived by user (same as fetchstart if no previous document)
-navigationStart = driver.execute_script("return window.performance.timing.navigationStart")
 
-#end of page load
-loadEventEnd = driver.execute_script("return window.performance.timing.loadEventEnd")
-count = 0
-while loadEventEnd == 0 and count < 3:
-    loadEventEnd = driver.execute_script("return window.performance.timing.loadEventEnd")
-    sleep(2)
-    count = count + 1
-if ( type(loadEventEnd) == int and type(navigationStart) == int ):
+if ( type(loadEventEnd) == long and type(navigationStart) == long ):
     complete_process = loadEventEnd - navigationStart
     if ( complete_process > 0 ):
         print str(complete_process)
@@ -61,5 +56,5 @@ if ( type(loadEventEnd) == int and type(navigationStart) == int ):
 else:
     print str(-1)
 
-sleep(2)
+sleep(1)
 driver.quit()
