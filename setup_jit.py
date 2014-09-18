@@ -24,7 +24,7 @@ os.chdir( start_dir );
 
 # COMMENT NEXT BLOCK OUT IF THIS IS NOT TO SET UP LOCAL PROXY (CLIENT) MACHINE #
 
-os.system( "wget 'https://pypi.python.org/packages/source/s/selenium/selenium-2.39.0.tar.gz'" );
+os.system( "wget --no-check-certificate 'https://pypi.python.org/packages/source/s/selenium/selenium-2.39.0.tar.gz'" );
 
 os.system( "sudo apt-get -y install python-setuptools python-pip xvfb xserver-xephyr tightvncserver unzip" );
 
@@ -44,7 +44,7 @@ os.system( "wget 'http://chromedriver.storage.googleapis.com/2.8/chromedriver_li
 
 os.system( "unzip chromedriver_linux32.zip" );
 
-os.system( "wget 'https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb' ");
+os.system( "wget --no-check-certificate 'https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb' ");
 
 os.system( "sudo dpkg -i google-chrome-stable_current_i386.deb" );
 
