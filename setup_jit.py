@@ -44,7 +44,7 @@ os.system( "wget 'http://chromedriver.storage.googleapis.com/2.8/chromedriver_li
 
 os.system( "unzip chromedriver_linux32.zip" );
 
-os.system( "wget 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb' ");
+os.system( "wget 'https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb' ");
 
 os.system( "sudo dpkg -i google-chrome-stable_current_i386.deb" );
 
