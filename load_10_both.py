@@ -16,7 +16,7 @@ with open(site_list) as f:
         load_file = current_dir + "/load_print.py"
         command_proxy = "localproxyshell 128.30.76.55 " + str(port) + " /usr/bin/python " + str(load_file) + " " + site
         command_web = "python " + str(load_file) + " " + site
-        for x in range(0,3):
+        for x in range(0,5):
             proc = subprocess.Popen([command_proxy], stdout=subprocess.PIPE, shell=True)
             (out, err) = proc.communicate()
             return_code = proc.returncode
@@ -25,18 +25,6 @@ with open(site_list) as f:
                 if ( len(stripped_out) < 6 ):
                     if ( int( stripped_out ) > 100 ):
                         site_times.append( stripped_out )
-        total = 0;
-        if ( len(site_times) != 0 ):
-            for time in site_times:
-                total = total + int(time)
-            average = float(total)/len(site_times)
-            print site
-            for time in site_times:
-               print time
-            print "PROXY AVERAGE: " + str(average)
-        else:
-            print "PROXY DID NOT LOAD: " + str(site)
-        for y in range(0,3):
             proc1 = subprocess.Popen([command_web], stdout=subprocess.PIPE, shell=True)
             (out1, err1) = proc1.communicate()
             return_code1 = proc1.returncode
@@ -45,7 +33,18 @@ with open(site_list) as f:
                 if ( len(stripped_out1) < 6 ):
                     if ( int( stripped_out1 ) > 100 ):
                         site_times_web.append( stripped_out1 )
-        total1 = 0;
+        total = 0;
+        total1 = 0
+        if ( len(site_times) != 0 ):
+            for time in site_times:
+                total = total + int(time)
+            average = float(total)/len(site_times)
+            print site
+            for time in site_times:
+               print time
+            print "AVERAGE: " + str(average)
+        else:
+            print "PROXY DID NOT LOAD: " + str(site)
         if ( len(site_times_web) != 0 ):
             for time1 in site_times_web:
                 total1 = total1 + int(time1)
@@ -53,6 +52,6 @@ with open(site_list) as f:
             print site
             for time in site_times_web:
                print time
-            print "WEB AVERAGE: " + str(average1)
+            print "AVERAGE: " + str(average1)
         else:
             print "WEB DID NOT LOAD: " + str(site)

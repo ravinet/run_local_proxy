@@ -7,22 +7,7 @@ import os
 
 os.system( "sudo apt-get -y update" );
 
-os.system( "sudo apt-get -y install autotools-dev dh-autoreconf iptables protobuf-compiler libprotobuf-dev pkg-config libssl-dev dnsmasq-base apache2-bin ssl-cert phantomjs git" );
-
-os.system( "git clone https://www.github.com/ravinet/mahimahi" );
-
 start_dir = os.getcwd()
-mahimahi_dir = start_dir + "/mahimahi"
-
-os.chdir( mahimahi_dir );
-
-os.system( "git checkout send_could_not_finds" );
-
-os.system( "./autogen.sh && ./configure && make -j && sudo make install" );
-
-os.chdir( start_dir );
-
-# COMMENT NEXT BLOCK OUT IF THIS IS NOT TO SET UP LOCAL PROXY (CLIENT) MACHINE #
 
 os.system( "wget 'https://pypi.python.org/packages/source/s/selenium/selenium-2.39.0.tar.gz'" );
 
