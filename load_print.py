@@ -61,5 +61,5 @@ if ( type(loadEventEnd) == int and type(navigationStart) == int ):
 else:
     print str(-1)
 
-sleep(2)
+sleep(1)
 driver.quit()
