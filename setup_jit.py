@@ -16,7 +16,7 @@ mahimahi_dir = start_dir + "/mahimahi"
 
 os.chdir( mahimahi_dir );
 
-os.system( "git checkout send_could_not_finds" );
+os.system( "git checkout no_200_fixes" );
 
 os.system( "./autogen.sh && ./configure && make -j && sudo make install" );
 
